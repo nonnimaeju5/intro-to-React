@@ -1,44 +1,57 @@
-import NavBar from "./components/NavBar";
-import { useState, useEffect } from "react";
-import ContactUs from "./components/ContactUs";
-import About from "./components/About"
-function App() {
-  const [page, setPage] = useState("about");
-  const [projects, setProjects] = useState([]);
+import React, { useState, useEffect } from "react";
+
+import MovieCard from "./Moviecard";
+import SearchIcon from "./search.svg";
+import "./App.css";
+// 
+const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
+
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
-    const getData = async ()=>{
-      const r = await fetch("https://tskoli-intranet-api-h7.vercel.app/api/v1/gallery")
-      const data = await r.json()
-      console.log(data);
-      setProjects(data);
-    }
-     getData();
+    searchMovies("Batman");
   }, []);
-  const pages = [
-    {
-      name:"About",
-      type:"static page"
-    },
-    {
-      name:"Contact Us",
-      type:"static page"
-    },
-    {
-      name:"projects",
-      type:"dynamic page"
-    }
-  ]
-  console.log(projects);
+
+  const searchMovies = async (title) => {
+    const response = await fetch(`${API_URL}&s=${title}`);
+    const data = await response.json();
+
+    setMovies(data.Search);
+  };
 
   return (
-    <div>
-      <NavBar links={pages} setPage={setPage}></NavBar><br></br>
-      {page==="about"?
-        <About></About>:
-        <ContactUs></ContactUs>
-      }
+    <div className="app">
+      <h1>Skjaldborgarbíó</h1>
+
+      <div className="search">
+        <input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search for movies"
+        />
+        <img
+          src={SearchIcon}
+          alt="search"
+          onClick={() => searchMovies(searchTerm)}
+        />
+      </div>
+
+      {movies?.length > 0 ? (
+        <div className="container">
+          {movies.map((movie) => (
+            <MovieCard movie={movie} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty">
+          <h2>No movies found</h2>
+        </div>
+      )}
     </div>
   );
-}
+};
+
 export default App;
 
