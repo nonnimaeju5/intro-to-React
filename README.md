@@ -1,4 +1,5 @@
-# After doing a Scrimba tutorial and all of Smári's React videos i decided to make a search movie site with the help of a React tutorial from Javascript mastery where you can search for all kinds of movies.
+## My process
+After doing a Scrimba tutorial and all of Smári's React videos, going front and back with React i decided to make a search movie site with the help of a React tutorial from Javascript mastery where you can search for all kinds of movies.
 
 ## I used UseState. 
 UseState is a hook that lets you add react state (data or properties) to function components. It allows you to track state in a function components.
