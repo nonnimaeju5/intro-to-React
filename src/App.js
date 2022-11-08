@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import MovieCard from "./Moviecard";
 import SearchIcon from "./search.svg";
 import "./App.css";
-// 
+// Api URL for fetching movies
 const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     searchMovies("Batman");
   }, []);
-
+// Api call to fetch movies based on search term
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
