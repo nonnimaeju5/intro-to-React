@@ -1,18 +1,21 @@
-After doing a Scrimba tutorial and all of Smári's React videos i decided to make a search movie site with the help of a React tutorial from Javascript mastery where you can search for all kinds of movies.
+## My process
+After doing a Scrimba tutorial and all of Smári's React videos, going front and back with React i decided to make a search movie site with the help of a React tutorial from Javascript mastery where you can search for all kinds of movies.
 
-I used UseState. UseState is a hook that lets you add react state (data or properties) to function components. It allows you to track state in a function components.
+## I used UseState. 
+UseState is a hook that lets you add react state (data or properties) to function components. It allows you to track state in a function components.
 
-I used useEffect, useEffect is the hook that manages the side-effects in functional components. Side effect is f.ex. fetching data.
+## I used useEffect.
+UseEffect is the hook that manages the side-effects in functional components. Side effect is f.ex. fetching data.
 
-I used async/await so when I open the page and the API is still loading I allow the page to continue loading without waiting for the API to get ready. So The API is waiting.
+## I used async/await 
+So when I open the page and the API is still loading I allow the page to continue loading without waiting for the API to get ready. 
 
-Fetch allowed me to get the API when searching for movies.
+### Fetch allowed me to get the API when searching for movies.
 
-Try searching for your favorite movies on the site. 
+### Try searching for your favorite movies on the site. 
 
 
-
------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
